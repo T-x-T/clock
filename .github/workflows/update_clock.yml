@@ -17,7 +17,7 @@ jobs:
         run: |
           git config --local user.email "37040316+T-x-T@users.noreply.github.com"
           git config --local user.name "T-x-T"
-          git add current_time.txt
+          git add clock.txt
           git commit -m "Update clock"
       
       - name: Push changes
