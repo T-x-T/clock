@@ -2,12 +2,12 @@ name: clock
 on:
   schedule:
     - cron: "*/5 * * * *"
-
+  workflow_dispatch:
+  
 jobs:
   tick:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       
       - name: Write UTC time to file
