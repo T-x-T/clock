@@ -1,0 +1,26 @@
+name: clock
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      
+      - name: Write UTC time to file
+        run: echo "$(date -u)" > clock.txt
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "37040316+T-x-T@users.noreply.github.com"
+          git config --local user.name "T-x-T"
+          git add current_time.txt
+          git commit -m "Update clock"
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
