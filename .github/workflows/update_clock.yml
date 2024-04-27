@@ -15,6 +15,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config --local user.name "clock"
+          git config --local user.email "clock@thetxt.io"
           git add clock.txt
           git commit -m "Update clock"
       
